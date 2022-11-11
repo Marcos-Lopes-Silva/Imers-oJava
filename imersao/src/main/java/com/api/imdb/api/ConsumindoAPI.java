@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class ConsumindoAPI {
     
-    public void getAPI(String url){
+    public String getAPI(String url){
 
         Properties prop = getProp();
 
@@ -26,10 +26,16 @@ public class ConsumindoAPI {
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
             System.out.println(response.body());
+            String body = response.body();
+
+            return body;
+            
         } catch (IOException | InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } 
+
+        return null;
     }
 
     public Properties getProp(){
@@ -47,6 +53,10 @@ public class ConsumindoAPI {
 
         return prop;
     
+    }
+
+    public List<Filmes> getFilmes(String body){
+
     }
 
 }
