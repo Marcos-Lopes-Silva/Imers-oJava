@@ -40,12 +40,10 @@ public class ConsumindoAPI {
         try {
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
-            String body = response.body();
-            // System.out.println(body);
-            return body;
+            return response.body();
 
         } catch (IOException | InterruptedException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

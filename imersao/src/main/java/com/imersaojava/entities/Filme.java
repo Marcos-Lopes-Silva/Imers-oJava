@@ -1,5 +1,7 @@
 package com.imersaojava.entities;
 
+import com.imersaojava.tools.RatingEmoji;
+
 public class Filme {
 
     private String title;
@@ -41,7 +43,7 @@ public class Filme {
     }
 
     public String getImage() {
-        return image;
+        return this.image;
     }
 
     public void setImage(String image) {
@@ -49,7 +51,9 @@ public class Filme {
     }
 
     public String getRating() {
-        return rating;
+        RatingEmoji emoji = new RatingEmoji();
+        this.rating = emoji.getRating(this.rating);
+        return this.rating;
     }
 
     public void setRating(String rating) {
